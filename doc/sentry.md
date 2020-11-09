@@ -1,7 +1,0 @@
- - badge 的文字在字大圓小時，很容易看起來並不對齊. sentry 透過手動設定 px 來拉開 font-size 與 height 來做.
-   - 但我們可以分兩個 tag, 只要設好行高跟垂直對齊. 就可以使用 font-size + em 來做
- - 下拉選單的 `項目` 跟 `輔助文字` 使用顏色深淺來做區隔, 而非字重.
-   - sort by: *Last Seen*
- - 下拉選單與按鈕大小切齊 ( 若可以的話 )
- - side menu icon 置中, 所以才能 toggle on / off text
- - side menu active item 左方有一個凸起加強效果. 作用是?
