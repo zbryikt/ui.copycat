@@ -14,7 +14,8 @@
     "npm": ">=6.4.1"
   },
   "scripts": {
-    "start": "cd web; npx server"
+    "start": "cd web; npx server",
+    "deploy": "npx deploy web/static"
   },
   "dependencies": {
     "@loadingio/ldquery": "^1.1.0",
