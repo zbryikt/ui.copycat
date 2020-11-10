@@ -3,17 +3,27 @@ block prehead
   base(href="../")
 block head
   link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap",rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap",rel="stylesheet")
+
   style(type="text/css"): :stylus
     html,body
-      font-size: 16px
+      font-size: 14px
+      font-family: roboto
+      font-weight: 400
       width: 100%
       height: 100%
+      color: #404244
+    i
+      font-size: 16px
+    .navtop i
+      font-size: 24px
     .root
       display: grid
       grid-template-columns: 260px 1fr
       grid-template-rows: 64px 1fr
     .side-menu .item
-      padding: .5em 1.5em
+      cursor: pointer
+      padding: .7em 2em
       display: flex
       align-items: center
     .side-menu .item.active
@@ -24,12 +34,23 @@ block head
       background: #ccc
       margin: 0 5px 5px 0
       height: 250px
+    .albums
+      display: grid
+      grid-template-columns: repeat(4,minmax(120px,1fr))
+      gap: 40px
+    .album-cats
+      display: grid
+      grid-template-columns: repeat(8,minmax(60px,1fr))
+      gap: 40px
+    b
+      font-weight: bold
+
 block body
   .w-100.root.h-100
     .border-bottom.w-100.h-100.d-flex.align-items-center: .px-4 Google 相簿
-    .border-bottom.w-100.h-100.d-flex.align-items-center
+    .navtop.border-bottom.w-100.h-100.d-flex.align-items-center
       .flex-grow-1
-        input.form-control.bg-light.border-0.w-100(placeholder="搜尋陽明山國家公園 ... ")
+        input.form-control.bg-light.border-0.w-100(placeholder="搜尋陽明山國家公園 ... ",style="padding:1.5em 1em")
       .mx-4
         i.i-upload
         span 上傳
@@ -41,11 +62,11 @@ block body
         i.i-bars
     .side-menu.w-100.h-100: .py-4.pr-4.position-relative.h-100
       .item.active #[i.i-doc.mr-4.text-lg] #[span 相片]
-      each i in [1]
-        .item #[i.i-doc.mr-4.text-lg] #[span 相片]
+      each name in ["共享"]
+        .item(ld="photo-sitelink") #[i.i-doc.mr-4.text-lg] #[b= name]
       .my-4.pl-4.text-sm 相片庫
-      each i in [1,2,3,4,5,6]
-        .item #[i.i-doc.mr-4.text-lg] #[span 相片]
+      each name in ["相簿","實用工具","封存","垃圾桶"]
+        .item(ld="album-sitelink") #[i.i-doc.mr-4.text-lg] #[b= name]
       .position-absolute.text-sm.p-4(style="bottom:0")
         a(href="#") 隱私權
         span &nbsp;．&nbsp;
@@ -54,7 +75,7 @@ block body
         a(href="#") 政策
         span &nbsp;．&nbsp;
 
-    .w-100.h-100.overflow-hidden: .w-100.h-100.pt-4.pb-4.pr-4(style="overflow:scroll")
+    .w-100.h-100.overflow-hidden(ld="photo-panel"): .w-100.h-100.pt-4.pb-4.pr-4(style="overflow:scroll")
       each i in [1,2,3,4,5]
         .py-2 10月31日 周六
         .d-flex.flex-wrap
@@ -62,4 +83,33 @@ block body
               each j in [1,2,3,4,5,6,7]
                 .photo(style=`flex:1 1 auto;width:${Math.random() * 200 + 80}px`)
 
+    .w-100.h-100.overflow-hidden.d-none.position-relative(ld="album-panel")
+      .p-3.d-flex.border-bottom.position-absolute.z-fixed.bg-white.align-items-center(style="top:0;width:100%")
+        .flex-grow-1.pl-4: b.text-lg 相簿
+        div
+          .btn.btn-text #[i.i-plus] 建立相簿
+          .btn.btn-text #[i.i-undo] 最近的相片
+
+      .w-100.h-100.pt-4.pb-4.pr-4(style="overflow:scroll;margin-top:4em")
+        .album-cats.px-4.mb-4.pb-4
+          each i in [1,2,3,4,5,6,7,8]
+            .album-cat
+              .aspect-ratio.ratio-1by1.bg-secondary.rounded-lg.mb-1
+              div(style="font-size:.9em")
+                .my-0
+                  i.i-heart
+                  b 人物與寵物
+
+        br
+
+        .albums.px-4
+          each i in [1,2,3,4,5,6,7]
+            each j in [1,2,3,4,5,6,7]
+              .album
+                .aspect-ratio.ratio-1by1.bg-secondary.rounded-lg.mb-1
+                div(style="font-size:.9em")
+                  .my-0: b 20191014 / 八斗子忘幽谷
+                  .text-sm 67 個項目．已共享
+
 block script
+  +script("js/google.photo/index.js")
