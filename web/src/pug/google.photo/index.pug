@@ -1,0 +1,65 @@
+extends /base.pug
+block prehead
+  base(href="../")
+block head
+  link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap",rel="stylesheet")
+  style(type="text/css"): :stylus
+    html,body
+      font-size: 16px
+      width: 100%
+      height: 100%
+    .root
+      display: grid
+      grid-template-columns: 260px 1fr
+      grid-template-rows: 64px 1fr
+    .side-menu .item
+      padding: .5em 1.5em
+      display: flex
+      align-items: center
+    .side-menu .item.active
+      background: #f2f5ff
+      border-radius: 0 2em 2em 0
+      color: #00f
+    .photo
+      background: #ccc
+      margin: 0 5px 5px 0
+      height: 250px
+block body
+  .w-100.root.h-100
+    .border-bottom.w-100.h-100.d-flex.align-items-center: .px-4 Google 相簿
+    .border-bottom.w-100.h-100.d-flex.align-items-center
+      .flex-grow-1
+        input.form-control.bg-light.border-0.w-100(placeholder="搜尋陽明山國家公園 ... ")
+      .mx-4
+        i.i-upload
+        span 上傳
+      .mx-4
+        i.i-question
+      .mx-4
+        i.i-gear
+      .mx-4
+        i.i-bars
+    .side-menu.w-100.h-100: .py-4.pr-4.position-relative.h-100
+      .item.active #[i.i-doc.mr-4.text-lg] #[span 相片]
+      each i in [1]
+        .item #[i.i-doc.mr-4.text-lg] #[span 相片]
+      .my-4.pl-4.text-sm 相片庫
+      each i in [1,2,3,4,5,6]
+        .item #[i.i-doc.mr-4.text-lg] #[span 相片]
+      .position-absolute.text-sm.p-4(style="bottom:0")
+        a(href="#") 隱私權
+        span &nbsp;．&nbsp;
+        a(href="#") 條款
+        span &nbsp;．&nbsp;
+        a(href="#") 政策
+        span &nbsp;．&nbsp;
+
+    .w-100.h-100.overflow-hidden: .w-100.h-100.pt-4.pb-4.pr-4(style="overflow:scroll")
+      each i in [1,2,3,4,5]
+        .py-2 10月31日 周六
+        .d-flex.flex-wrap
+            each i in [1,2,3,4,5,6,7]
+              each j in [1,2,3,4,5,6,7]
+                .photo(style=`flex:1 1 auto;width:${Math.random() * 200 + 80}px`)
+
+block script

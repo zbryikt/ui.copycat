@@ -96,9 +96,9 @@ block body
                   span.mr-3: i.i-close
                   span.mr-3: i.i-plus
                   span.mr-3: i.i-gear
-      .p-4.d-flex.flex-wrap
+      .p-4(style="display:grid;grid-template-columns: repeat(4,minmax(100px,1fr));gap:20px")
         each i in [1,2,3,4,5]
-          .card.shadow-sm.flex-grow-1(style="width:240px;margin:0 1.5em 1.5em 0")
+          .card.shadow-sm
             .card-body
               .d-flex
                 .mr-2.mt-1: i.i-square
@@ -110,8 +110,6 @@ block body
                     span 0 errors | 384 transactions
             .aspect-ratio.ratio-3by2.bg-light
             .p-4.text-center: .my-4: .btn.btn-outline-secondary.shadow-sm Track Deploys
-        each i in [1,2,3]
-          .flex-grow-1(style="width:240px;height:0;margin:0 1.5em 1.5em 0")
       .border-top
         .p-4
           .text-right
