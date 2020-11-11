@@ -116,7 +116,7 @@ pug_mixins["css"]("assets/lib/bootstrap/main/css/bootstrap.min.css");
 ;pug_debug_line = 9;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";
 pug_mixins["css"]("assets/lib/bootstrap.ldui/main/bootstrap.ldui.min.css");
 ;pug_debug_line = 10;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";
-pug_mixins["css"]("assets/lib/ldiconfont/main/ldif.min.css");
+pug_mixins["css"]("assets/lib/ldiconfont/dev/ldif.min.css");
 ;pug_debug_line = 11;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";
 pug_mixins["css"]("https://fonts.googleapis.com/css?family=Roboto:300,400,700|Roboto+Mono");
 ;pug_debug_line = 12;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";

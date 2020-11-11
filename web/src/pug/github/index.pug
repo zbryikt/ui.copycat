@@ -1,0 +1,179 @@
+extends /base.pug
+block prehead
+  base(href="../")
+block head
+  style(type="text/css"): :stylus
+    html,body
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
+      font-size: 14px; font-weight: 400; color: #334
+    .fvac
+      display: flex
+      align-items: center
+
+    .icon
+      width: 1em
+      height: 1em
+      border-radius: .5em
+      background: #ddd
+      margin-right: .5em
+
+    .tabs
+      display: flex
+      align-items: center
+      .tab
+        padding: 1em 1.6em 1em 1.4em
+        display: flex
+        align-items: center
+        &.active
+          border-bottom: 2px solid #f72
+
+    .file-list
+      .list-group-item
+        display: flex
+        align-items: center
+        .name
+          width: 8em
+        .desc
+          width: 8em
+          flex: 1 0 auto
+
+block body
+
+  -
+    var tabs = [
+      ["","Code", 0],
+      ["","Issues", 0],
+      ["","Pull requests", 0],
+      ["","Actions", 0],
+      ["","Projects", 0],
+      ["","Wiki", 0],
+      ["","Security", 1],
+      ["","Insights", 0],
+      ["","Settings", 0]
+    ]
+
+  .w-100.bg-light(style="border-bottom:1px solid #ccc")
+    .w-1024.rwd.mx-auto
+      .py-4
+        .fvac
+          .text-lg.fvac.flex-grow-1
+            .icon
+            a(href="#") PlotDB
+            span.mx-2 /
+            a(href="#") ui.copycat
+          .btn-group.ml-2.shadow-sm
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Unwatch
+            .btn.btn-sm.btn-outline-secondary.bg-white 2
+          .btn-group.ml-2.shadow-sm
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Star
+            .btn.btn-sm.btn-outline-secondary.bg-white 56
+          .btn-group.ml-2.shadow-sm
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Fork
+            .btn.btn-sm.btn-outline-secondary.bg-white 6
+      .tabs
+        each n,$index in tabs
+          .tab(class=($index == 1 ? "active" : ""))
+            .icon
+            .name= n[1]
+            .notify
+
+  .w-1024.rwd.mx-auto.my-4
+    .row
+      .col-md-9
+        .alert.alert-warning.d-flex
+          .flex-grow-1
+            b We found potential security vulnerabilities in your dependencies.
+            .text-sm.text-muted Only the owner of this repository can see this message.
+          div: .btn.btn-outline-secondary.bg-light See Dependabot alerts
+        .d-flex.align-items-center.my-3
+          .btn.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[.icon] master
+          .btn.btn-text.fvac #[.icon] 4 #[span.text-muted.ml-1 branches]
+          .btn.btn-text.fvac #[.icon] 0 #[span.text-muted.ml-1 tags]
+          .flex-grow-1
+          .btn.btn-outline-secondary.mr-2 Go to file
+          .btn.btn-outline-secondary.mr-2.dropdown-toggle(data-toggle="dropdown") Add file
+          .btn.btn-success.dropdown-toggle.fvac(data-toggle="dropdown") #[.icon] Code
+        .card.mb-4
+          .card-header.py-3(style="background:#def")
+            .fvac
+              .icon
+              .flex-grow-1 #[b zbryikt] move attribution of sound files in README
+              .text-muted.mr-2 5739a19
+              span.mr-2 on Dec 16, 2015
+              .icon.mx-2
+              span 14 commits
+
+
+          .file-list.list-group.list-group-flush
+
+            each n in ["assets","img","res","src","static/css"]
+              .list-group-item
+                .icon
+                .name= n
+                .desc Some Randome Description ...
+                .time 5 years ago
+
+        .card.mb-4: .card-body
+          .fvac.mb-4.pb-4
+            .flex-grow-1: b README.md
+            .icon
+          div: :md
+            # ui.copycat
+
+            copy ui from various sites to learn how they design things.
+
+      .col-md-3
+        .fvac.my-3(style="font-size:1.2em")
+          .flex-grow-1: b About
+          .icon
+        p.text-muted No description, website, or topics provided.
+        .fvac #[.icon.mr-2] Readme
+        .fvac #[.icon.mr-2] MIT License
+
+        hr.my-4
+        .fvac.my-3(style="font-size:1.2em")
+          .flex-grow-1: b Release
+        .text-muted No releases published
+        a(href="#") Create a new release
+
+        hr.my-4
+        .fvac.my-3(style="font-size:1.2em")
+          .flex-grow-1: b Packages
+        .text-muted No packages published
+        a(href="#") Publish your first package
+
+        hr.my-4
+        .fvac.my-3(style="font-size:1.2em")
+          .flex-grow-1: b Contributors
+          .rounded-circle.bg-light.text-center(style="line-height:1em;width:1em;height:1em;"): div(style="vertical-align:center;font-size:10px") 2
+        .fvac.pb-2 #[.icon.mr-2.text-lg]#[span zbryikt]
+        .fvac.pb-2 #[.icon.mr-2.text-lg]#[span zbryikt]
+
+        hr.my-4
+        .fvac.my-3(style="font-size:1.2em")
+          .flex-grow-1: b Languages
+
+        .progress
+          .progress-bar(style="width:50%")
+          .progress-bar(style="width:30%;background:#9f9")
+        .fvac.flex-wrap
+          each n in ["HTML","CSS","JavaScript"]
+            .item.fvac.text-sm.mr-4.mt-2
+              .icon
+              .name.mx-1= n
+              .percent.text-muted 55%
+  .w-1024.rwd.mx-auto.border-top.mt-4.py-4: .py-4.fvac.justify-content-between
+    .fvac
+      .icon
+      div © 2020 GitHub, Inc.
+    a(href="#") Terms
+    a(href="#") Privacy
+    a(href="#") Security
+    a(href="#") Status
+    a(href="#") Help
+    a(href="#") Contact GitHub
+    a(href="#") Pricing
+    a(href="#") API
+    a(href="#") Training
+    a(href="#") Blog
+

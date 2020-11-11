@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'ldi';
+  font-weight: normal;
+  font-style: normal;
+/* this shold be overwritten by users to point to correct path */
+  src: url("ldif.ttf") format('truetype');
+}
+i {
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ldi' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* if icon is not aligned, use following example to tweak its offset vertically by editing `top` style. */
+/* in this case, add a `ldif` class ( or any other customized class ) for better distinguishing those icons. */
+/*
+i.ldif:before
+  position: relative
+  top: 0
+*/
+/*@import '../gen/glyphs.styl'*/
+i.i-bars:before {
+  content: "\2600";
+}
+i.i-check:before {
+  content: "\2601";
+}
+i.i-checkbox:before {
+  content: "\2602";
+}
+i.i-chevron-down:before {
+  content: "\2603";
+}
+i.i-chevron-left:before {
+  content: "\2604";
+}
+i.i-chevron-right:before {
+  content: "\2605";
+}
+i.i-chevron-up:before {
+  content: "\2606";
+}
+i.i-circle:before {
+  content: "\2607";
+}
+i.i-dark-down:before {
+  content: "\2608";
+}
+i.i-dart-left:before {
+  content: "\2609";
+}
+i.i-dart-right:before {
+  content: "\260a";
+}
+i.i-dart-up:before {
+  content: "\260b";
+}
+i.i-doc:before {
+  content: "\260c";
+}
+i.i-gear:before {
+  content: "\260d";
+}
+i.i-heart:before {
+  content: "\260e";
+}
+i.i-question:before {
+  content: "\260f";
+}
+i.i-radio:before {
+  content: "\2610";
+}
+i.i-square:before {
+  content: "\2611";
+}
+i.i-upload:before {
+  content: "\2612";
+}
