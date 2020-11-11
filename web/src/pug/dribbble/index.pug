@@ -1,0 +1,59 @@
+extends /base.pug
+block prehead
+  base(href="../")
+block head
+  style(type="text/css"): :stylus
+    html,body
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
+      font-size: 14px; font-weight: 400; color: #334
+    .fvac
+      display: flex
+      align-items: center
+    .icon
+      width: 1em
+      height: 1em
+      border-radius: .5em
+      background: #ddd
+      margin-right: .5em
+    .works
+      display: grid
+      grid-template-columns: repeat(4,minmax(200px,1fr))
+      gap: 3em
+
+block body
+  .w-100
+    .p-4.fvac.border-bottom.font-weight-bold
+      .icon
+      span.mr-4 Dribbble
+      .dropdown: .btn.dropdown-toggle(data-toggle="dropdown") Explore
+      .dropdown: .btn.dropdown-toggle(data-toggle="dropdown") For Designer
+      .mx-2 |
+      .dropdown: .btn.dropdown-toggle(data-toggle="dropdown") Hire Designer?
+      .flex-grow-1
+      .text-danger Upgrade Now - Go Pro
+      input.form-control.mx-3(placeholder="Search",style="max-width:150px")
+      .icon.mx-3(style="font-size:1.5em")
+      .icon.mx-3(style="font-size:1.5em") 
+      .icon.mx-3(style="font-size:1.5em")
+      .btn.btn-danger Upload
+    .w-1200.rwd.mx-auto
+      .py-4.fvac.justify-content-between
+        .dropdown
+          .btn.btn-light.dropdown-toggle(data-toggle="dropdown") Following
+        .nav.nav-pills
+          each n,$index in ["All","Animation","Branding","Illustration","Mobile","Print","Product Design","Typograph","Web Design"]
+            .nav-item: .nav-link(class=($index==0?"active":""))= n
+        .btn.btn-light.fvac #[.icon.mr-2]#[span Filters]
+      div(style="width:3.5em;height:3.5em;border-radius:3.5em;background:rgba(0,0,0,.35);position:fixed;bottom:2em;right:2em;text-align:center;line-height:3.5em")
+        .icon(style="vertical-align:middle;margin:0;display:inline-block;position:relative;bottom:2px")
+      .works
+        each i in [1,2,3,4,5,6,7]
+          each j in [1,2,3,4,5,6,7]
+            .work
+              .aspect-ratio.ratio-4by3.bg-secondary.rounded.mb-2
+              .fvac
+                .icon.mr-2
+                .name.flex-grow-1.font-weight-bold(style="font-size:1.1em") tubik
+                .fvac.mr-3.text-muted.text-sm #[.icon.mr-1]#[span 0]
+                .fvac.text-muted.text-sm #[.icon.mr-1]#[span 32]
+
