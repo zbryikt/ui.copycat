@@ -15,11 +15,13 @@
   },
   "scripts": {
     "start": "cd web; npx server",
-    "deploy": "npx deploy web/static"
+    "deploy": "npx deploy web/static",
+    "bootstrap": "npx bootstrap.build -c config/default/ -o web/static/assets/lib/bootstrap.custom"
   },
   "dependencies": {
     "@loadingio/ldquery": "^1.1.0",
     "LiveScript": ">=1.2.0",
+    "bootstrap.build": "github:plotdb/bootstrap.build",
     "bootstrap.ldui": "github:loadingio/bootstrap.ldui",
     "bootstrap.native": "^3.0.13",
     "colors": "^1.3.3",
