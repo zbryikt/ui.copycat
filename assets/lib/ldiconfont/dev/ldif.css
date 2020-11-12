@@ -25,60 +25,75 @@ i.ldif:before
   top: 0
 */
 /*@import '../gen/glyphs.styl'*/
-i.i-bars:before {
+i.i-alert:before {
   content: "\2600";
 }
-i.i-check:before {
+i.i-bell:before {
   content: "\2601";
 }
-i.i-checkbox:before {
+i.i-book:before {
   content: "\2602";
 }
-i.i-chevron-down:before {
+i.i-branch:before {
   content: "\2603";
 }
-i.i-chevron-left:before {
+i.i-certificate:before {
   content: "\2604";
 }
-i.i-chevron-right:before {
+i.i-code:before {
   content: "\2605";
 }
-i.i-chevron-up:before {
+i.i-download:before {
   content: "\2606";
 }
-i.i-circle:before {
+i.i-exclamation-circle:before {
   content: "\2607";
 }
-i.i-dark-down:before {
+i.i-eye-slash:before {
   content: "\2608";
 }
-i.i-dart-left:before {
+i.i-eye:before {
   content: "\2609";
 }
-i.i-dart-right:before {
+i.i-file:before {
   content: "\260a";
 }
-i.i-dart-up:before {
+i.i-folder:before {
   content: "\260b";
 }
-i.i-doc:before {
+i.i-gear:before {
   content: "\260c";
 }
-i.i-gear:before {
+i.i-github:before {
   content: "\260d";
 }
-i.i-heart:before {
+i.i-history:before {
   content: "\260e";
 }
-i.i-question:before {
+i.i-kanban:before {
   content: "\260f";
 }
-i.i-radio:before {
+i.i-line-chart:before {
   content: "\2610";
 }
-i.i-square:before {
+i.i-mail:before {
   content: "\2611";
 }
-i.i-upload:before {
+i.i-merge:before {
   content: "\2612";
+}
+i.i-play-circle:before {
+  content: "\2613";
+}
+i.i-plus:before {
+  content: "\2614";
+}
+i.i-shield:before {
+  content: "\2615";
+}
+i.i-star:before {
+  content: "\2616";
+}
+i.i-tag:before {
+  content: "\2617";
 }
