@@ -4,11 +4,15 @@ block prehead
 block head
   style(type="text/css"): :stylus
     html,body
-      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
+      font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
       font-size: 14px; font-weight: 400; color: #334
     .fvac
       display: flex
       align-items: center
+
+    i.ldif
+      font-size: 16px
+      line-height: 1
 
     .icon
       width: 1em
@@ -24,8 +28,9 @@ block head
         padding: 1em 1.6em 1em 1.4em
         display: flex
         align-items: center
+        border-bottom: 2px solid transparent
         &.active
-          border-bottom: 2px solid #f72
+          border-bottom-color: #f72
 
     .file-list
       .list-group-item
@@ -41,15 +46,15 @@ block body
 
   -
     var tabs = [
-      ["","Code", 0],
-      ["","Issues", 0],
-      ["","Pull requests", 0],
-      ["","Actions", 0],
-      ["","Projects", 0],
-      ["","Wiki", 0],
-      ["","Security", 1],
-      ["","Insights", 0],
-      ["","Settings", 0]
+      ["code","Code", 0],
+      ["exclamation-circle","Issues", 0],
+      ["merge","Pull requests", 0],
+      ["play-circle","Actions", 0],
+      ["kanban","Projects", 0],
+      ["book","Wiki", 0],
+      ["shield","Security", 1],
+      ["line-chart","Insights", 0],
+      ["gear","Settings", 0]
     ]
 
   .w-100.bg-dark.text-light.fvac.p-3
@@ -61,9 +66,9 @@ block body
     .mx-3 Marketplace
     .mx-3 Explore
     .ml-auto
-    .icon.mx-2
-    .icon.mx-2
-    .icon.mx-2
+    i.ldif.i-bell.mx-3
+    i.ldif.i-plus.mx-3
+    .icon.mx-3
   .w-100.bg-light(style="border-bottom:1px solid #ccc")
     .w-1024.rwd.mx-auto
       .py-4
@@ -74,18 +79,18 @@ block body
             span.mx-2 /
             a(href="#") ui.copycat
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Unwatch
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-eye-slash.mr-1] Unwatch
             .btn.btn-sm.btn-outline-secondary.bg-white 2
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Star
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-star.mr-1] Star
             .btn.btn-sm.btn-outline-secondary.bg-white 56
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[.icon] Fork
+            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-branch.mr-1] Fork
             .btn.btn-sm.btn-outline-secondary.bg-white 6
       .tabs
         each n,$index in tabs
           .tab(class=($index == 1 ? "active" : ""))
-            .icon
+            i.ldif.mr-1(class=`i-${n[0]}`)
             .name= n[1]
             .notify
 
@@ -94,17 +99,18 @@ block body
       .col-md-9
         .alert.alert-warning.d-flex
           .flex-grow-1
+            i.ldif.i-alert.mr-1
             b We found potential security vulnerabilities in your dependencies.
             .text-sm.text-muted Only the owner of this repository can see this message.
           div: .btn.btn-outline-secondary.bg-light See Dependabot alerts
         .d-flex.align-items-center.my-3
-          .btn.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[.icon] master
-          .btn.btn-text.fvac #[.icon] 4 #[span.text-muted.ml-1 branches]
-          .btn.btn-text.fvac #[.icon] 0 #[span.text-muted.ml-1 tags]
+          .btn.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[i.ldif.i-branch.mr-1] master
+          .btn.btn-text.fvac #[i.ldif.i-branch.mr-1] 4 #[span.text-muted.ml-1 branches]
+          .btn.btn-text.fvac #[i.ldif.i-tag.mr-1] 0 #[span.text-muted.ml-1 tags]
           .flex-grow-1
           .btn.btn-outline-secondary.mr-2 Go to file
           .btn.btn-outline-secondary.mr-2.dropdown-toggle(data-toggle="dropdown") Add file
-          .btn.btn-success.dropdown-toggle.fvac(data-toggle="dropdown") #[.icon] Code
+          .btn.btn-success.dropdown-toggle.fvac(data-toggle="dropdown") #[i.ldif.i-download.mr-1] Code
         .card.mb-4
           .card-header.py-3(style="background:#def")
             .fvac
@@ -112,7 +118,7 @@ block body
               .flex-grow-1 #[b zbryikt] move attribution of sound files in README
               .text-muted.mr-2 5739a19
               span.mr-2 on Dec 16, 2015
-              .icon.mx-2
+              i.ldif.i-history.mx-2
               span 14 commits
 
 
@@ -120,7 +126,14 @@ block body
 
             each n in ["assets","img","res","src","static/css"]
               .list-group-item
-                .icon
+                i.ldif.i-folder.mr-2(style="opacity:.6")
+                .name= n
+                .desc Some Randome Description ...
+                .time 5 years ago
+
+            each n in ["README.md","LICENSE","main.ls","package.json"]
+              .list-group-item
+                i.ldif.i-file.mr-2(style="opacity:.6")
                 .name= n
                 .desc Some Randome Description ...
                 .time 5 years ago
@@ -137,10 +150,10 @@ block body
       .col-md-3
         .fvac.my-3(style="font-size:1.2em")
           .flex-grow-1: b About
-          .icon
+          i.ldif.i-gear
         p.text-muted No description, website, or topics provided.
-        .fvac #[.icon.mr-2] Readme
-        .fvac #[.icon.mr-2] MIT License
+        .fvac #[i.ldif.i-book.mr-2] Readme
+        .fvac #[i.ldif.i-certificate.mr-2] MIT License
 
         hr.my-4
         .fvac.my-3(style="font-size:1.2em")
@@ -176,7 +189,7 @@ block body
               .percent.text-muted 55%
   .w-1024.rwd.mx-auto.border-top.mt-4.py-4: .py-4.fvac.justify-content-between
     .fvac
-      .icon
+      i.ldif.i-github.mr-2
       div © 2020 GitHub, Inc.
     a(href="#") Terms
     a(href="#") Privacy

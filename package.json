@@ -16,7 +16,8 @@
   "scripts": {
     "start": "cd web; npx server",
     "deploy": "npx deploy web/static",
-    "bootstrap": "npx bootstrap.build -c config/default/ -o web/static/assets/lib/bootstrap.custom"
+    "bootstrap": "npx bootstrap.build -c config/default/ -o web/static/assets/lib/bootstrap.custom",
+    "ldif": "npx ldif -s 80 -i web/src/icon/ -d web/static/assets/lib/ldiconfont/dev/ -a 70 -y -10; npx ldif-server -d web/static/assets/lib/ldiconfont/dev"
   },
   "dependencies": {
     "@loadingio/ldquery": "^1.1.0",
@@ -36,8 +37,9 @@
     "stylus": "^0.54.5",
     "svg2ttf": "^4.2.0",
     "svgo": "^1.2.2",
-    "template": "github:zbryikt/template#v2.1.1",
-    "uglifycss": "=0.0.29"
+    "template": "github:zbryikt/template#v2.1.2",
+    "uglifycss": "=0.0.29",
+    "yargs": "^16.1.0"
   },
   "frontendDependencies": {
     "root": "web/static/assets/lib",

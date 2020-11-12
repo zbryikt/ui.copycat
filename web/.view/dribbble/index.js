@@ -129,7 +129,7 @@ pug_mixins["css"]("css/index.css");
 ;pug_debug_line = 5;pug_debug_filename = "src\u002Fpug\u002Fdribbble\u002Findex.pug";
 pug_html = pug_html + "\u003Cstyle type=\"text\u002Fcss\"\u003E";
 ;pug_debug_line = 5;pug_debug_filename = "src\u002Fpug\u002Fdribbble\u002Findex.pug";
-pug_html = pug_html + "html,\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 400;\n  color: #334;\n}\n.fvac {\n  display: flex;\n  align-items: center;\n}\n.icon {\n  width: 1em;\n  height: 1em;\n  border-radius: 0.5em;\n  background: #ddd;\n  margin-right: 0.5em;\n}\n.works {\n  display: grid;\n  grid-template-columns: repeat(4, minmax(200px, 1fr));\n  gap: 3em;\n}\n\u003C\u002Fstyle\u003E\u003C\u002Fhead\u003E";
+pug_html = pug_html + "html,\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  font-weight: 400;\n  color: #334;\n}\n.fvac {\n  display: flex;\n  align-items: center;\n}\n.icon {\n  width: 1em;\n  height: 1em;\n  border-radius: 0.5em;\n  background: #ddd;\n  margin-right: 0.5em;\n}\n.works {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n  gap: 3em;\n}\n\u003C\u002Fstyle\u003E\u003C\u002Fhead\u003E";
 ;pug_debug_line = 16;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";
 pug_html = pug_html + "\u003Cbody\u003E";
 ;pug_debug_line = 18;pug_debug_filename = "\u002FUsers\u002Ftkirby\u002Fworkspace\u002Fzbryikt\u002Fui.copycat\u002Fweb\u002Fsrc\u002Fpug\u002Fbase.pug";
