@@ -1,0 +1,4 @@
+ - 使用 normalized font list
+   - -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+   - 討論參考: https://github.com/necolas/normalize.css/issues/665
+ - tabs 在畫面不夠時, 會隨實際寬度將放不下的藏在 ... 的下拉選單中
