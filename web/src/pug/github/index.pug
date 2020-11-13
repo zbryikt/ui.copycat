@@ -6,12 +6,15 @@ block head
     html,body
       font-family: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif
       font-size: 14px; font-weight: 400; color: #334
+    .dropdown-menu
+      box-shadow: 0 4px 12px rgba(0,0,0,.1)
     .fvac
       display: flex
       align-items: center
 
     i.ldif
       font-size: 16px
+      opacity: .8
       line-height: 1
 
     .icon
@@ -68,6 +71,7 @@ block body
     .ml-auto
     i.ldif.i-bell.mx-3
     i.ldif.i-plus.mx-3
+    i.ldif.i-question-circle.mx-3
     .icon.mx-3
   .w-100.bg-light(style="border-bottom:1px solid #ccc")
     .w-1024.rwd.mx-auto
@@ -79,13 +83,15 @@ block body
             span.mx-2 /
             a(href="#") ui.copycat
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-eye-slash.mr-1] Unwatch
+            .btn-group
+              .btn.btn-sm.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[i.ldif.i-eye-slash.mr-1] Unwatch
+              .dropdown-menu
             .btn.btn-sm.btn-outline-secondary.bg-white 2
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-star.mr-1] Star
+            .btn.btn-sm.btn-outline-secondary.fvac #[i.ldif.i-star.mr-1] Star
             .btn.btn-sm.btn-outline-secondary.bg-white 56
           .btn-group.ml-2.shadow-sm
-            .btn.btn-sm.btn-outline-secondary.fvac(data-toggle="dropdown") #[i.ldif.i-branch.mr-1] Fork
+            .btn.btn-sm.btn-outline-secondary.fvac #[i.ldif.i-branch.mr-1] Fork
             .btn.btn-sm.btn-outline-secondary.bg-white 6
       .tabs
         each n,$index in tabs
@@ -104,18 +110,40 @@ block body
             .text-sm.text-muted Only the owner of this repository can see this message.
           div: .btn.btn-outline-secondary.bg-light See Dependabot alerts
         .d-flex.align-items-center.my-3
-          .btn.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[i.ldif.i-branch.mr-1] master
+          .dropdown
+            .btn.btn-outline-secondary.fvac.dropdown-toggle(data-toggle="dropdown") #[i.ldif.i-branch.mr-1] master
+            .dropdown-menu
           .btn.btn-text.fvac #[i.ldif.i-branch.mr-1] 4 #[span.text-muted.ml-1 branches]
           .btn.btn-text.fvac #[i.ldif.i-tag.mr-1] 0 #[span.text-muted.ml-1 tags]
           .flex-grow-1
           .btn.btn-outline-secondary.mr-2 Go to file
-          .btn.btn-outline-secondary.mr-2.dropdown-toggle(data-toggle="dropdown") Add file
-          .btn.btn-success.dropdown-toggle.fvac(data-toggle="dropdown") #[i.ldif.i-download.mr-1] Code
+          .dropdown
+            .btn.btn-outline-secondary.mr-2.dropdown-toggle(data-toggle="dropdown") Add file
+            .dropdown-menu.dropdown-menu-right
+              .dropdown-item Create new file
+              .dropdown-item Upload files
+          .dropdown
+            .btn.btn-success.dropdown-toggle.fvac(data-toggle="dropdown") #[i.ldif.i-download.mr-1] Code
+            .dropdown-menu.dropdown-menu-right(style="width:300px")
+              .px-4.py-3.border-bottom
+                .fvac #[i.ldif.i-terminal.mr-3]#[.flex-grow-1 Clone]#[i.ldif-question-circle]
+                .fvac.text-sm
+                  .py-2.mr-3 HTTPS
+                  .py-2.mr-3 SSH
+                  .py-2.mr-3 GitHub CLI
+                .input-group.mb-2
+                  input.form-control.form-control-sm.bg-light
+                  .input-group-append
+                    .btn.btn-outline-secondary.fvac.py-0 #[i.ldif.i-clipboard]
+                .text-muted.text-sm Work fast with our official CLI. #[a(href="#") Learn more.]
+              .dropdown-item.fvac.py-3.border-bottom #[i.ldif.i-desktop.mr-3]#[.flex-grow-1 Open with Codespaces] #[i.ldif.i-dart-right]
+              .dropdown-item.fvac.py-3 #[i.ldif.i-zip.mr-3]#[.flex-grow-1 Download ZIP]
         .card.mb-4
           .card-header.py-3(style="background:#def")
             .fvac
               .icon
               .flex-grow-1 #[b zbryikt] move attribution of sound files in README
+              .text-success.mr-2: i.ldif.i-check
               .text-muted.mr-2 5739a19
               span.mr-2 on Dec 16, 2015
               i.ldif.i-history.mx-2
@@ -141,7 +169,8 @@ block body
         .card.mb-4: .card-body
           .fvac.mb-4.pb-4
             .flex-grow-1: b README.md
-            .icon
+            i.ldif.i-pen
+            i.ldif.i-trashcan.ml-4
           div: :md
             # ui.copycat
 
@@ -152,8 +181,13 @@ block body
           .flex-grow-1: b About
           i.ldif.i-gear
         p.text-muted No description, website, or topics provided.
-        .fvac #[i.ldif.i-book.mr-2] Readme
-        .fvac #[i.ldif.i-certificate.mr-2] MIT License
+
+        .fvac.my-3 #[i.ldif.i-link.mr-2] #[a(href="#") zbryikt.github.io/ui.copycat]
+        .d-flex.flex-wrap.text-sm
+          each n in ["mockup","copycat","ui"]
+            a.mr-2(href="#",style="padding:.125em 1em;border-radius:2em;background:#def"): b= n
+        .fvac.my-3 #[i.ldif.i-book.mr-2] Readme
+        .fvac.my-3 #[i.ldif.i-certificate.mr-2] MIT License
 
         hr.my-4
         .fvac.my-3(style="font-size:1.2em")
@@ -172,7 +206,7 @@ block body
           .flex-grow-1: b Contributors
           .rounded-circle.bg-light.text-center(style="line-height:1em;width:1em;height:1em;"): div(style="vertical-align:center;font-size:10px") 2
         .fvac.pb-2 #[.icon.mr-2.text-lg]#[span zbryikt]
-        .fvac.pb-2 #[.icon.mr-2.text-lg]#[span zbryikt]
+        .fvac.pb-2 #[.icon.mr-2.text-lg]#[span tkirby]
 
         hr.my-4
         .fvac.my-3(style="font-size:1.2em")
