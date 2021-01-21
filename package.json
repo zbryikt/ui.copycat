@@ -31,7 +31,7 @@
     "fs-extra": "^8.0.0",
     "jsdom": "^15.0.0",
     "ldcover": "github:loadingio/ldCover",
-    "ldiconfont": "github:loadingio/ldiconfont",
+    "ldiconfont": "^0.1.2",
     "ldview": "0.0.2",
     "progress": "^2.0.3",
     "stylus": "^0.54.5",

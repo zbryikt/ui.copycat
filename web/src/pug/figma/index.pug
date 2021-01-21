@@ -1,0 +1,40 @@
+extends /base.pug
+block prehead
+  base(href="..")
+block head
+  link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap",rel="stylesheet")
+  style(type="text/css"): :stylus
+    html,body
+      width: 100%
+      height: 100%
+      font-size: 16px
+      font-family: Rubik
+      background: #fafbfc
+    .menu
+      padding: 0 .25em
+      display: flex
+    .menu-item
+      i
+        font-size: 24px
+      padding: .25em .5em
+      display: flex
+      align-items: center
+      .i-dart-down
+        font-size: 12px
+        padding-left: .75em
+block body
+  .w-100.h-100.d-flex.flex-column
+    .bg-dark.text-white.menu
+      .d-flex
+        each i in [1,2,3,4]
+          .menu-item
+            i.i-bars
+            i.i-dart-down
+      .d-flex.flex-grow-1: .menu-item.flex-grow-1.justify-content-center
+        div GrantDash / Untitled
+      .d-flex
+        each i in [1,2,3]
+          .menu-item
+            i.i-bars
+            i.i-dart-down
+    .bg-light.flex-grow-1
